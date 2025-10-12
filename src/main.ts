@@ -4,9 +4,9 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // CORS اصلاح‌شده
+  // CORS برای همه منشأها (برای تست Codespace)
   app.enableCors({
-    origin: 'http://localhost:5173', // آدرس فرانت‌اند شما
+    origin: '*', // اجازه به همه منشأها (شامل Codespace frontend)
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
