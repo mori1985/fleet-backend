@@ -4,10 +4,11 @@ import { VehicleController } from './vehicle.controller';
 import { VehicleService } from './vehicle.service';
 import { Vehicle } from './vehicle.entity';
 import { VehicleGateway } from './vehicle.gateway';
+import { VehicleHistory } from './vehicle-history.entity';
 
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Vehicle])],
+  imports: [TypeOrmModule.forFeature([Vehicle, VehicleHistory])],
   controllers: [VehicleController],
   providers: [VehicleService, VehicleGateway],
 })

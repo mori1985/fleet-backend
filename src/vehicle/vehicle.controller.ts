@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { VehicleService } from './vehicle.service';
-import { Vehicle } from './vehicle.entity';
+import { Vehicle } from './vehicle.entity'; // مطمئن شو مسیر درست باشه
 
 @Controller('vehicles')
 export class VehicleController {
@@ -12,7 +12,12 @@ export class VehicleController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<Vehicle> {
-    return this.vehicleService.findOne(+id);
+  async getVehicle(@Param('id') id: string) {
+    return this.vehicleService.findOne(Number(id));
+  }
+
+  @Get(':id/history')
+  async getVehicleHistory(@Param('id') id: string) {
+    return this.vehicleService.findHistory(Number(id));
   }
 }
