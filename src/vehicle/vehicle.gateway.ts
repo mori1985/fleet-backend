@@ -2,6 +2,7 @@ import { WebSocketGateway, WebSocketServer, SubscribeMessage, MessageBody, OnGat
 import { Server } from 'socket.io';
 import { VehicleService } from './vehicle.service';
 import { Vehicle } from './vehicle.entity';
+import { Logger } from '@nestjs/common';
 
 @WebSocketGateway({ cors: { origin: '*' } })
 export class VehicleGateway implements OnGatewayInit {
